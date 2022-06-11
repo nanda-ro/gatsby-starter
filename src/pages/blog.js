@@ -1,12 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Box, Container } from '@mui/material';
+import Header from '../components/Header';
+import Copyright from '../components/Copyright';
 
 export default function Blog({ data }) {
   const { posts } = data.blog
 
   return (
-    <div>
-      <h1>My blog posts</h1>
+    <Container maxWidth="false">
+      <Header/>
+      <Container maxWidth="sm">
+        <Box sx={{ my: 4 }}>
 
       {posts.map(post => (
         <article key={post.node.id}>
@@ -15,9 +20,12 @@ export default function Blog({ data }) {
           <p>{post.node.excerpt}</p>
         </article>
       ))}
-    </div>
-  )
-}
+          <Copyright />
+        </Box>
+      </Container>
+    </Container>
+  );
+};
 
 export const pageQuery = graphql`
   query MyQuery {
