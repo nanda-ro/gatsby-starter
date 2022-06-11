@@ -2,10 +2,9 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { Box, Container } from '@mui/material';
 import Header from '../components/Header';
-import Copyright from '../components/Copyright';
+import Footer from '../components/Footer';
 
 export default function Home({ data }) {
-  const { title, description } = data.site.siteMetadata
   const { posts } = data.blog
 
   return (
@@ -24,21 +23,15 @@ export default function Home({ data }) {
                 <p>{post.node.excerpt}</p>
               </article>
             ))}
-          <Copyright />
         </Box>
       </Container>
+      <Footer />
     </Container>
   )
 }
 
 export const pageQuery = graphql`
   query HomeQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
     blog: allMdx {
       posts: edges {
         node {

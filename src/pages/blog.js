@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { Box, Container } from '@mui/material';
 import Header from '../components/Header';
-import Copyright from '../components/Copyright';
+import Footer from '../components/Footer';
 
 export default function Blog({ data }) {
   const { posts } = data.blog
@@ -20,9 +20,9 @@ export default function Blog({ data }) {
           <p>{post.node.excerpt}</p>
         </article>
       ))}
-          <Copyright />
         </Box>
       </Container>
+      <Footer />
     </Container>
   );
 };
