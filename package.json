@@ -1,0 +1,39 @@
+{
+  "name": "gatsby-starter",
+  "version": "0.1.0",
+  "description": "Gatsby starter",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nanda-ro/gatsby-starter.git"
+  },
+  "author": "Yuuki Sakakibara",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nanda-ro/gatsby-starter/issues"
+  },
+  "homepage": "https://github.com/nanda-ro/gatsby-starter#readme",
+  "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.8.1",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@mui/material": "^5.8.3",
+    "gatsby": "^4.16.0",
+    "gatsby-plugin-image": "^2.16.1",
+    "gatsby-plugin-mdx": "^3.16.1",
+    "gatsby-plugin-react-helmet": "^5.16.0",
+    "gatsby-plugin-sharp": "^4.16.1",
+    "gatsby-remark-prismjs": "^6.16.0",
+    "gatsby-source-filesystem": "^4.16.0",
+    "gatsby-transformer-sharp": "^4.16.0",
+    "prismjs": "^1.28.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0"
+  }
+}
