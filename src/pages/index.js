@@ -4,7 +4,7 @@ import { Box, Container } from '@mui/material';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-export default function Home({ data }) {
+const Home = ({ data }) => {
   const { posts } = data.blog
 
   return (
@@ -25,7 +25,7 @@ export default function Home({ data }) {
             ))}
         </Box>
       </Container>
-      <Footer />
+      <Footer/>
     </Container>
   )
 }
@@ -48,3 +48,4 @@ export const pageQuery = graphql`
     }
   }
 `
+export default Home;

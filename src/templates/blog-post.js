@@ -2,12 +2,12 @@ import React from "react";
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import * as styles from './blog-post.module.css';
 
-export default function BlogPost({ data }) {
+const BlogPost = ({ data }) => {
   const post = data.mdx
 
   return (
@@ -40,3 +40,5 @@ export const query = graphql`
     }
   }
 `
+
+export default BlogPost;
