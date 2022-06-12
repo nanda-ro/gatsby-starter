@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { Box, Container } from '@mui/material';
+import { Container, Box, Typography } from '@mui/material';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -8,23 +8,13 @@ const Home = ({ data }) => {
   const { posts } = data.blog
 
   return (
-    <Container maxWidth="false">
+    <Container maxWidth="lx">
       <Header/>
-      <Container maxWidth="sm">
-        <Box sx={{ my: 4 }}>
-            {posts.map(post => (
-              <article key={post.node.id}>
-                <Link to={`/blog/${post.node.slug}/`}>
-                  <h2>{post.node.frontmatter.title}</h2>
-                </Link>
-                <small>
-                  {post.node.frontmatter.author}, {post.node.frontmatter.date}
-                </small>
-                <p>{post.node.excerpt}</p>
-              </article>
-            ))}
-        </Box>
-      </Container>
+      <Box sx={{ my: 20 }}>
+        <Typography variant="h1" align="center">
+          Hi.
+        </Typography>
+      </Box>
       <Footer/>
     </Container>
   )

@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Container } from '@mui/material';
+import { Box, Container, Card, CardActionArea, CardContent, Typography, Link } from '@mui/material';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -12,14 +12,23 @@ const Blog = ({ data }) => {
       <Header/>
       <Container maxWidth="sm">
         <Box sx={{ my: 4 }}>
-
-      {posts.map(post => (
-        <article key={post.node.id}>
-          <h2>{post.node.frontmatter.title}</h2>
-          <small>{post.node.frontmatter.author}, {post.node.frontmatter.date}</small>
-          <p>{post.node.excerpt}</p>
-        </article>
-      ))}
+          {posts.map(post => (
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea href={`/blog/${post.node.slug}/`}>
+                <CardContent>
+                <Typography gutterBottom variant="h6" component="div">
+                    {post.node.frontmatter.title}
+                  </Typography>
+                  <Typography gutterBottom variant="body2" component="div">
+                    {post.node.frontmatter.date}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {post.node.excerpt}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          ))}
         </Box>
       </Container>
       <Footer/>
@@ -39,6 +48,7 @@ export const pageQuery = graphql`
           }
           excerpt
           id
+          slug
         }
       }
     }

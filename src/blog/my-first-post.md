@@ -1,5 +1,5 @@
 ---
-title: TITLE
+title: Gatsby Blog Title
 author: AUTHOR
 date: 2000-01-01
 ---

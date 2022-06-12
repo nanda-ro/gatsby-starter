@@ -19,6 +19,19 @@ const theme = createTheme({
       main: red.A400,
     },
   },
+  components: {
+    MuiAppBar: {
+      defaultProps: {
+        color: 'transparent',
+        elevation: 0,
+      },
+    },
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true
+      },
+    },
+  },
 });
 
 export default theme;
