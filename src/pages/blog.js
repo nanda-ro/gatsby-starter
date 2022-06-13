@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Container, Card, CardActionArea, CardContent, Typography, Link } from '@mui/material';
+import { Grid, Container, Card, CardActionArea, CardContent, Typography } from '@mui/material';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -8,31 +8,40 @@ const Blog = ({ data }) => {
   const { posts } = data.blog
 
   return (
-    <Container maxWidth="false">
-      <Header/>
-      <Container maxWidth="sm">
-        <Box sx={{ my: 4 }}>
-          {posts.map(post => (
-            <Card sx={{ maxWidth: 345 }}>
-              <CardActionArea href={`/blog/${post.node.slug}/`}>
-                <CardContent>
-                <Typography gutterBottom variant="h6" component="div">
-                    {post.node.frontmatter.title}
-                  </Typography>
-                  <Typography gutterBottom variant="body2" component="div">
-                    {post.node.frontmatter.date}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {post.node.excerpt}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          ))}
-        </Box>
-      </Container>
-      <Footer/>
-    </Container>
+    <Grid container>
+      <Grid item xs={12}>
+        <Header />
+      </Grid>
+      <Grid item xs={12}>
+        <Typography variant="h3" component="div" align="center">
+          Blog
+        </Typography>
+        <Container maxWidth="md" sx={{ my: 5 }}>
+          <Grid container spacing={2}>
+            {posts.map(post => (
+              <Grid item xs={4}>
+                <Card sx={{ maxWidth: 345 }}>
+                  <CardActionArea href={`/blog/${post.node.slug}/`}>
+                    <CardContent>
+                      <Typography variant="h6" component="div">
+                        {post.node.frontmatter.title}
+                      </Typography>
+                      <Typography variant="body2" align="right">
+                        {post.node.frontmatter.date}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {post.node.excerpt}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+        <Footer/>
+      </Grid>
+    </Grid>
   );
 };
 
@@ -42,7 +51,7 @@ export const pageQuery = graphql`
       posts: edges {
         node {
           frontmatter {
-            date(fromNow: true)
+            date(formatString: "YYYY/MM/DD")
             title
             author
           }
